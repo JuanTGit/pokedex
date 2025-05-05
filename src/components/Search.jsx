@@ -33,6 +33,11 @@ function Search(){
 		}
 	}
 
+	const removePokemon = (name) => {
+		console.log('removing pokemon')
+		setPokeData(prev => prev.filter(p => p.name !== name));
+	};
+
 
 
 	return (
@@ -47,7 +52,7 @@ function Search(){
 			<div className="row">
 				{pokeData.map((pokemon, index) => (
 					<div className="col-3" key={index}>
-						<PokeCard text={pokemon.name} img={pokemon.image} weight={pokemon.weight}/>
+						<PokeCard text={pokemon.name} img={pokemon.image} weight={pokemon.weight} onRemove={() => removePokemon(pokemon.name)}/>
 					</div>
 				))}
 			</div>
